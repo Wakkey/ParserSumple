@@ -1,51 +1,157 @@
 object Form1: TForm1
-  Left = 686
+  Left = 269
   Height = 418
-  Top = 149
-  Width = 456
+  Top = 180
+  Width = 454
   Caption = 'Form1'
   ClientHeight = 418
-  ClientWidth = 456
+  ClientWidth = 454
   LCLVersion = '1.0.14.0'
   object Button1: TButton
     Left = 24
     Height = 25
     Top = 80
     Width = 75
-    Caption = 'Button1'
+    Caption = '最初に押す'
     OnClick = Button1Click
     TabOrder = 0
   end
   object Edit1: TEdit
-    Left = 24
+    Left = 20
     Height = 26
-    Top = 32
-    Width = 248
+    Top = 24
+    Width = 416
     TabOrder = 1
-    Text = 'Edit1'
+    Text = 'if a = b then begin if c > d then begin aaa := ''123'' end; end;'
   end
   object ListBox1: TListBox
-    Left = 176
+    Left = 336
     Height = 80
-    Top = 72
+    Top = 88
     Width = 100
     ItemHeight = 0
     TabOrder = 2
   end
   object ListBox2: TListBox
-    Left = 176
+    Left = 336
     Height = 80
-    Top = 173
+    Top = 192
     Width = 100
     ItemHeight = 0
     TabOrder = 3
   end
   object ListBox3: TListBox
-    Left = 176
+    Left = 336
     Height = 80
-    Top = 269
+    Top = 304
     Width = 100
     ItemHeight = 0
     TabOrder = 4
+  end
+  object Button2: TButton
+    Left = 24
+    Height = 25
+    Top = 120
+    Width = 75
+    Caption = '次に押す'
+    OnClick = Button2Click
+    TabOrder = 5
+  end
+  object ListBox4: TListBox
+    Left = 224
+    Height = 80
+    Top = 88
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 6
+  end
+  object ListBox5: TListBox
+    Left = 224
+    Height = 80
+    Top = 192
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 7
+  end
+  object ListBox6: TListBox
+    Left = 224
+    Height = 80
+    Top = 296
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 8
+  end
+  object Button3: TButton
+    Left = 24
+    Height = 25
+    Top = 152
+    Width = 75
+    Caption = '３番目に押す'
+    OnClick = Button3Click
+    TabOrder = 9
+  end
+  object ListBox7: TListBox
+    Left = 112
+    Height = 80
+    Top = 88
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 10
+  end
+  object Label1: TLabel
+    Left = 120
+    Height = 13
+    Top = 64
+    Width = 70
+    Caption = '動作見取り図'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 228
+    Height = 13
+    Top = 66
+    Width = 37
+    Caption = '予約語'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 226
+    Height = 13
+    Top = 173
+    Width = 41
+    Caption = 'ブロック'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 228
+    Height = 13
+    Top = 277
+    Width = 25
+    Caption = '変数'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 339
+    Height = 13
+    Top = 64
+    Width = 13
+    Caption = '式'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 340
+    Height = 13
+    Top = 175
+    Width = 13
+    Caption = '値'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 339
+    Height = 13
+    Top = 279
+    Width = 37
+    Caption = '計算式'
+    ParentColor = False
   end
 end
