@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 269
+  Left = 281
   Height = 418
-  Top = 180
+  Top = 167
   Width = 454
   Caption = 'Form1'
   ClientHeight = 418
@@ -51,7 +51,7 @@ object Form1: TForm1
   object Button2: TButton
     Left = 24
     Height = 25
-    Top = 120
+    Top = 112
     Width = 75
     Caption = '次に押す'
     OnClick = Button2Click
@@ -84,7 +84,7 @@ object Form1: TForm1
   object Button3: TButton
     Left = 24
     Height = 25
-    Top = 152
+    Top = 144
     Width = 75
     Caption = '３番目に押す'
     OnClick = Button3Click
@@ -96,6 +96,7 @@ object Form1: TForm1
     Top = 88
     Width = 100
     ItemHeight = 0
+    OnDblClick = ListBox7DblClick
     TabOrder = 10
   end
   object Label1: TLabel
@@ -153,5 +154,49 @@ object Form1: TForm1
     Width = 37
     Caption = '計算式'
     ParentColor = False
+  end
+  object Button4: TButton
+    Left = 24
+    Height = 25
+    Top = 176
+    Width = 75
+    Caption = '4番目に押す'
+    OnClick = Button4Click
+    TabOrder = 11
+  end
+  object ListBox8: TListBox
+    Left = 112
+    Height = 80
+    Top = 192
+    Width = 100
+    ItemHeight = 0
+    OnDblClick = ListBox8DblClick
+    TabOrder = 12
+  end
+  object Button5: TButton
+    Left = 24
+    Height = 25
+    Top = 208
+    Width = 75
+    Caption = '5番目に押す'
+    OnClick = Button5Click
+    TabOrder = 13
+  end
+  object ListBox9: TListBox
+    Left = 113
+    Height = 80
+    Top = 295
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 14
+  end
+  object Button6: TButton
+    Left = 24
+    Height = 25
+    Top = 240
+    Width = 75
+    Caption = 'Button6'
+    OnClick = Button6Click
+    TabOrder = 15
   end
 end

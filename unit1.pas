@@ -15,6 +15,9 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
     Edit1: TEdit;
     Label1: TLabel;
     Label2: TLabel;
@@ -30,9 +33,16 @@ type
     ListBox5: TListBox;
     ListBox6: TListBox;
     ListBox7: TListBox;
+    ListBox8: TListBox;
+    ListBox9: TListBox;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure ListBox7DblClick(Sender: TObject);
+    procedure ListBox8DblClick(Sender: TObject);
 
   private
     { private declarations }
@@ -285,6 +295,61 @@ begin
   end;
 end;
 
+function ruthin4(st1,st2,st3,st4,st5,st6,st7,st8:TStringList;s1,s2,s3,s4,s5,s6,s7:string):boolean;
+var
+  s:string;
+  i:integer;
+  st:TStringList;
+  function subruthin1(st1,st2,st3:TStringList;s:string):boolean;
+  var
+    i,i1:integer;
+  begin
+    if st1.Count > 0 then
+    for i := 0 to st1.Count -1 do begin
+      i1 := st2.IndexOf(st1[i]);
+      if i1 > -1 then begin
+        st3[i] := s + ' no.' + inttostr(i1);
+      end;
+    end;
+  end;
+begin
+  for i := 0 to 7 do begin
+    case i of
+      0:begin
+        st := st2;
+        s := s1;
+      end;
+      1:begin
+        st := st3;
+        s := s2;
+      end;
+      2:begin
+        st := st4;
+        s := s3;
+      end;
+      3:begin
+        st := st5;
+        s := s4;
+      end;
+      4:begin
+        st := st6;
+        s := s5;
+      end;
+      5:begin
+        st := st7;
+        s := s6;
+      end;
+    end;
+    subruthin1(st1,st,st8,s);
+  end;
+end;
+
+function ruthin5(st:TStringList):boolean;
+begin
+  st.Text := StringReplace(st.Text,'set_',' ',[rfReplaceAll]);
+  st.Text := StringReplace(st.Text,' no.',' ',[rfReplaceAll]);
+end;
+
 procedure TForm1.Button1Click(Sender: TObject);
 begin
   form1.ListBox7.Items.Text := ruthin0(edit1.Text);
@@ -308,6 +373,168 @@ begin
   l2.Text:= form1.ListBox5.Items.Text;
   ruthin3(l1,l2);
   form1.ListBox6.Items.Text := l1.Text;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+var
+  st1,st2,st3,st4,st5,st6,st7,st8:TStringList;
+  s1,s2,s3,s4,s5,s6,s7:string;
+  function set_string:boolean;
+  var
+    i:integer;
+    s:string;
+  begin
+    for i := 0 to 7 do begin
+      s := 'set_' + inttostr(i+1);
+      case i of
+        0:s1 := s;
+        1:s2 := s;
+        2:s3 := s;
+        3:s4 := s;
+        4:s5 := s;
+        5:s6 := s;
+        6:s7 := s;
+      end;
+    end;
+  end;
+begin
+  st1 := TStringList.Create;
+  st2 := TStringList.Create;
+  st3 := TStringList.Create;
+  st4 := TStringList.Create;
+  st5 := TStringList.Create;
+  st6 := TStringList.Create;
+  st7 := TStringList.Create;
+  st8 := TStringList.Create;
+  st1.Text:= Listbox7.Items.Text;
+  st2.Text:= Listbox1.Items.Text;
+  st3.Text:= Listbox2.Items.Text;
+  st4.Text:= Listbox3.Items.Text;
+  st5.Text:= Listbox4.Items.Text;
+  st6.Text:= Listbox5.Items.Text;
+  st7.Text:= Listbox6.Items.Text;
+  st8.Text:= Listbox7.Items.Text;
+
+  set_string;
+  //showmessage(st1.Text);
+  ruthin4(st1,st2,st3,st4,st5,st6,st7,st8, s1,s2,s3,s4,s5,s6,s7);
+  listbox8.Items.Text:= st8.Text;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+var
+  st:TStringList;
+begin
+  st := TStringList.Create;
+  st.Text:= form1.ListBox8.Items.Text;
+  ruthin5(st);
+  form1.ListBox9.Items.Text:= st.Text;
+  st.Free;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.ListBox7DblClick(Sender: TObject);
+var
+  i,i1:integer;
+  s,s1:string;
+  st:TStringList;
+  function ruthin6(c:TListbox;i:integer):boolean;
+  begin
+    form1.ActiveControl := c;
+    c.ItemIndex := i;
+  end;
+
+begin
+  st := TStringList.Create;
+  st.Clear;
+  s := form1.ListBox9.Items[form1.ListBox7.ItemIndex];
+  st.text := StringReplace(s,' ',char(13),[rfReplaceAll]);
+  s1 := '1234567890';
+  i := st.Count -1;
+  while i > 0 do begin
+    i1 := ansipos(st[i],s1);
+    if 0 = i1 then
+      st.Delete(i);
+    dec(i);
+  end;
+  //showmessage(st.Text);
+  i := strtoint(st[1]);
+  i1 := strtoint(st[2]);
+  case i of
+    1:begin
+      ruthin6(form1.ListBox1,i1);
+    end;
+    2:begin
+      ruthin6(form1.ListBox2,i1);
+    end;
+    3:begin
+      ruthin6(form1.ListBox3,i1);
+    end;
+    4:begin
+      ruthin6(form1.ListBox4,i1);
+    end;
+    5:begin
+      ruthin6(form1.ListBox5,i1);
+    end;
+    6:begin
+      ruthin6(form1.ListBox6,i1);
+    end;
+  end;
+
+end;
+
+procedure TForm1.ListBox8DblClick(Sender: TObject);
+var
+  i,i1:integer;
+  s,s1:string;
+  st:TStringList;
+  function ruthin6(c:TListbox;i:integer):boolean;
+  begin
+    form1.ActiveControl := c;
+    c.ItemIndex := i;
+  end;
+
+begin
+  st := TStringList.Create;
+  st.Clear;
+  s := form1.ListBox9.Items[form1.ListBox8.ItemIndex];
+  st.text := StringReplace(s,' ',char(13),[rfReplaceAll]);
+  s1 := '1234567890';
+  i := st.Count -1;
+  while i > 0 do begin
+    i1 := ansipos(st[i],s1);
+    if 0 = i1 then
+      st.Delete(i);
+    dec(i);
+  end;
+  //showmessage(st.Text);
+  i := strtoint(st[1]);
+  i1 := strtoint(st[2]);
+  case i of
+    1:begin
+      ruthin6(form1.ListBox1,i1);
+    end;
+    2:begin
+      ruthin6(form1.ListBox2,i1);
+    end;
+    3:begin
+      ruthin6(form1.ListBox3,i1);
+    end;
+    4:begin
+      ruthin6(form1.ListBox4,i1);
+    end;
+    5:begin
+      ruthin6(form1.ListBox5,i1);
+    end;
+    6:begin
+      ruthin6(form1.ListBox6,i1);
+    end;
+  end;
+
 end;
 
 
